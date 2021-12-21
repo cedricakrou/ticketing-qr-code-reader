@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Ticketing Qr Code Rearder</string>
+
+    <string name="getStartedText">COMMENCER</string>
+
+    <string name="permissionCameraText">Permission refusée, Vous ne pouvez pas acceder à la camera</string>
+    <string name="permissonNotDenied">Veuillez accorder les permissions svp</string>
+
+    <string name="tryAgainPrintTicket">Permission accordée, Veuillez imprimer le ticket à nouveau</string>
+
+    <string name="askCodeText">Demander le code de confirmation</string>
+
+</resources>

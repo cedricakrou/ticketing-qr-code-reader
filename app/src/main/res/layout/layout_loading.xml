@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.agrawalsuneet.dotsloader.loaders.LinearDotsLoader
+        android:id="@+id/loading_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:loader_animDur="500"
+        app:loader_noOfDots="3"
+        app:loader_circleRadius="25dp"
+        app:loader_defaultColor="@color/colorAccent"
+        app:loader_selectedColor="@color/colorPrimaryDark"
+        app:loader_dotsDist="15dp"
+        app:loader_expandOnSelect="false"
+        app:loader_isSingleDir="false"
+        app:loader_selectedRadius="10dp"
+        app:loader_showRunningShadow="true"
+        app:loader_firstShadowColor="@color/tab_indicator_gray"
+        app:loader_secondShadowColor="@color/colorAccent"
+        android:layout_centerInParent="true" />
+
+
+</RelativeLayout>

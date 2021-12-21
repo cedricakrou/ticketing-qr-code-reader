@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="54dp"
+                android:src="@drawable/event_icon"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:id="@+id/labelAppName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="3dp"
+                android:text="@string/app_name"
+                android:textColor="#333583"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="app"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="#000"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/labelAppName" />
+
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/darker_gray"
+                android:src="@drawable/creator_icon" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/correction" />
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/darkGreen"
+            android:paddingTop="50dp"
+            android:paddingBottom="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/labelMemberNo"
+                    style="@style/labelSummaryScan"
+                    android:text="Numéro du ticket" />
+
+
+                <TextView
+                    android:id="@+id/tv_memberNo"
+                    style="@style/itemSummaryScan"
+                    android:layout_below="@id/labelMemberNo"
+                    android:text="0709" />
+
+
+                <TextView
+                    android:id="@+id/labelName"
+                    android:text="Crée le"
+                    style="@style/labelSummaryScan"
+                    android:layout_below="@id/tv_memberNo" />
+
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    style="@style/itemSummaryScan"
+                    android:layout_below="@id/labelName"
+                    android:text="KAKOU AKROU CEDRIC" />
+
+
+                <TextView
+                    android:id="@+id/labelContact"
+                    android:text="Scanné le"
+                    style="@style/labelSummaryScan"
+                    android:layout_below="@id/tv_name" />
+
+
+                <TextView
+                    android:id="@+id/tv_contact"
+                    style="@style/itemSummaryScan"
+                    android:text="0709882886"
+                    android:layout_below="@id/labelContact"/>
+
+
+                <Button
+                    android:id="@+id/btn_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_below="@id/tv_contact"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/btn_orange_style"
+                    android:text="@string/askCodeText"
+                    android:textColor="#fff" />
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <com.agrawalsuneet.dotsloader.loaders.LinearDotsLoader
+        android:id="@+id/loading_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:loader_animDur="500"
+        app:loader_noOfDots="3"
+        app:loader_circleRadius="25dp"
+        app:loader_defaultColor="@color/colorAccent"
+        app:loader_selectedColor="@color/colorPrimaryDark"
+        app:loader_dotsDist="15dp"
+        app:loader_expandOnSelect="false"
+        app:loader_isSingleDir="false"
+        app:loader_selectedRadius="10dp"
+        app:loader_showRunningShadow="true"
+        app:loader_firstShadowColor="@color/tab_indicator_gray"
+        app:loader_secondShadowColor="@color/colorAccent"
+        android:layout_centerInParent="true" />
+
+
+
+</RelativeLayout>
