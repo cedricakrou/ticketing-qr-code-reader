@@ -9,17 +9,26 @@ import com.cedricakrou.ticketingqrcoderearder.presentation.features.summary.Summ
 import com.cedricakrou.ticketingqrcoderearder.presentation.features.summary.SummaryState
 import com.cedricakrou.ticketingqrcoderearder.presentation.features.summary.SummaryViewModel
 import com.cedricakrou.ticketingqrcoderearder.R
+import com.cedricakrou.ticketingqrcoderearder.domain.entities.QrCode
 import com.cedricakrou.ticketingqrcoderearder.presentation.Utils
 import com.cedricakrou.ticketingqrcoderearder.presentation.common.BaseActivity
 import com.cedricakrou.ticketingqrcoderearder.presentation.features.home.ui.HomeActivity
+import com.cedricakrou.ticketingqrcoderearder.presentation.widget.LikpechAlertDialog
 import kotlinx.android.synthetic.main.activity_summary.*
 
 class SummaryActivity : BaseActivity<SummaryIntent, SummaryAction, SummaryState, SummaryViewModel>( SummaryViewModel::class.java)   {
 
+    lateinit var qrCode: QrCode
 
     override fun getLayoutResId(): Int = R.layout.activity_summary
 
     override fun initUI() {
+
+        qrCode = intent.getSerializableExtra( "data" ) as QrCode
+
+        tv_ticketNumber.text = qrCode.ticketNumber.toString()
+        tv_name.text = qrCode.createdDate
+        tv_contact.text = qrCode.scanDate
 
     }
 
@@ -29,9 +38,9 @@ class SummaryActivity : BaseActivity<SummaryIntent, SummaryAction, SummaryState,
 
     override fun initEVENT() {
 
-        btn_scan.setOnClickListener {
+        btn_submit.setOnClickListener {
 
-//            dispatchIntent( SummaryIntent.ClickSendCode( memberNo = client.memberNo ) )
+            dispatchIntent( SummaryIntent.ClickScan( ticketNumber = qrCode.ticketNumber ) )
 
         }
 
@@ -44,7 +53,7 @@ class SummaryActivity : BaseActivity<SummaryIntent, SummaryAction, SummaryState,
 
                 Toast.makeText( this, "Envoi du code en cours", Toast.LENGTH_LONG ).show()
 
-                Utils.hideAndShowView( loading_bar, ll_body)
+                Utils.hideAndShowView( ll_body, loading_bar)
 
             }
             is SummaryState.ErrorSendCode -> {
@@ -55,15 +64,32 @@ class SummaryActivity : BaseActivity<SummaryIntent, SummaryAction, SummaryState,
             }
             is SummaryState.SuccessSendCode -> {
 
+                Utils.hideAndShowView( loading_bar, ll_body)
+
                 val response = state.response
 
                 if ( response.error ) {
-                    Toast.makeText( this, response.message, Toast.LENGTH_LONG ).show()
+//                    Toast.makeText( this, response.message, Toast.LENGTH_LONG ).show()
+
+                    LikpechAlertDialog(
+                        context = this,
+                        title = "Scan error - Alerte Fraude ",
+                        message = response.message,
+                        function = {
+
+                            val intent = Intent( this, HomeActivity::class.java )
+                            startActivity( intent )
+
+                            finish()
+
+                        }
+                    )
+
                 }
                 else {
 
                     createAlertDialog( this,
-                    "Le client doit vous communiquer le code que vous utiliserez dans neo, en sus de son numéro d'assuré, pour verifier son identité."
+                            response.message
                         )
 
                 }
@@ -76,7 +102,7 @@ class SummaryActivity : BaseActivity<SummaryIntent, SummaryAction, SummaryState,
 
     fun createAlertDialog(context: Context, message: String, success: Boolean = false) {
         val builder = AlertDialog.Builder(context)
-        builder.setTitle( "Code envoyé au Client" )
+        builder.setTitle( "Result scan Qr Code" )
         builder.setMessage(message)
         builder.setPositiveButton("OK") { dialog, which ->         // return home page
 

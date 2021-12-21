@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import com.cedricakrou.ticketingqrcoderearder.application.di.common.AppRouter
+import com.cedricakrou.ticketingqrcoderearder.data.managers.contrats.QrCodeManager
+import com.cedricakrou.ticketingqrcoderearder.data.managers.remote.impl.QrCodeManagerImpl
+import com.cedricakrou.ticketingqrcoderearder.infrastructure.remote.ApiService
 import com.cedricakrou.ticketingqrcoderearder.presentation.common.RootBaseActivity
 import dagger.Module
 import dagger.Provides
@@ -25,5 +28,9 @@ class ActivityModule constructor( private val activity: RootBaseActivity) {
 
     @Provides
     fun providesSharedPreferencesEditor( sharedPreferences: SharedPreferences ) : SharedPreferences.Editor = sharedPreferences.edit()
+
+
+    @Provides
+    fun providesQrCodeAccessor( apiService: ApiService) : QrCodeManager = QrCodeManagerImpl( apiService )
 
 }

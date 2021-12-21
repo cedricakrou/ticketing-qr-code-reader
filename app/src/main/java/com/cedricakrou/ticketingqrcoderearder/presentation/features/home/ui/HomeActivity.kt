@@ -12,6 +12,7 @@ import com.cedricakrou.ticketingqrcoderearder.presentation.common.BaseActivity
 import com.cedricakrou.ticketingqrcoderearder.R
 import com.cedricakrou.ticketingqrcoderearder.domain.entities.QrCode
 import com.cedricakrou.ticketingqrcoderearder.presentation.features.home.ui.reader.ZXingAutofocusScannerView
+import com.cedricakrou.ticketingqrcoderearder.presentation.features.summary.ui.SummaryActivity
 import com.cedricakrou.ticketingqrcoderearder.presentation.widget.LikpechAlertDialog
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.zxing.Result
@@ -151,11 +152,10 @@ class HomeActivity : BaseActivity<
             val objectMapper : ObjectMapper = ObjectMapper()
             val data : QrCode  = objectMapper.readValue( p0!!.text, QrCode::class.java )
 
-/**
+
             val intent : Intent = Intent( this, SummaryActivity::class.java )
             intent.putExtra( "data", data )
             startActivity(  intent )
-**/
         }
         catch ( ex : Exception ) {
 

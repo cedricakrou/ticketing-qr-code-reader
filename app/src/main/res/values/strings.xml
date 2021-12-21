@@ -8,6 +8,6 @@
 
     <string name="tryAgainPrintTicket">Permission accordée, Veuillez imprimer le ticket à nouveau</string>
 
-    <string name="askCodeText">Demander le code de confirmation</string>
+    <string name="askCodeText">VALIDER</string>
 
 </resources>

@@ -89,7 +89,7 @@
 
 
                 <TextView
-                    android:id="@+id/tv_memberNo"
+                    android:id="@+id/tv_ticketNumber"
                     style="@style/itemSummaryScan"
                     android:layout_below="@id/labelMemberNo"
                     android:text="0709" />
@@ -99,14 +99,14 @@
                     android:id="@+id/labelName"
                     android:text="Crée le"
                     style="@style/labelSummaryScan"
-                    android:layout_below="@id/tv_memberNo" />
+                    android:layout_below="@id/tv_ticketNumber" />
 
 
                 <TextView
                     android:id="@+id/tv_name"
                     style="@style/itemSummaryScan"
                     android:layout_below="@id/labelName"
-                    android:text="KAKOU AKROU CEDRIC" />
+                    android:text="25/12/2020" />
 
 
                 <TextView
@@ -119,12 +119,12 @@
                 <TextView
                     android:id="@+id/tv_contact"
                     style="@style/itemSummaryScan"
-                    android:text="0709882886"
+                    android:text="Non scanné"
                     android:layout_below="@id/labelContact"/>
 
 
                 <Button
-                    android:id="@+id/btn_scan"
+                    android:id="@+id/btn_submit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
