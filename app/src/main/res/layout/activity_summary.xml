@@ -137,7 +137,7 @@
                     android:background="@drawable/btn_orange_style"
                     android:text="@string/askCodeText"
                     android:textColor="#fff"
-                    android:visibility="gone"/>
+                    android:visibility="visible"/>
 
             </RelativeLayout>
 
