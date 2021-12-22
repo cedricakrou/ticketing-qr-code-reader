@@ -23,8 +23,8 @@
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="54dp"
-                android:src="@drawable/event_icon"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="20dp"
+                android:src="@drawable/icone" />
 
             <TextView
                 android:id="@+id/labelAppName"
@@ -99,13 +99,15 @@
                     android:id="@+id/labelName"
                     android:text="Crée le"
                     style="@style/labelSummaryScan"
-                    android:layout_below="@id/tv_ticketNumber" />
+                    android:layout_below="@id/tv_ticketNumber"
+                    android:visibility="gone"/>
 
 
                 <TextView
                     android:id="@+id/tv_name"
                     style="@style/itemSummaryScan"
                     android:layout_below="@id/labelName"
+                    android:visibility="gone"
                     android:text="25/12/2020" />
 
 
@@ -113,14 +115,16 @@
                     android:id="@+id/labelContact"
                     android:text="Scanné le"
                     style="@style/labelSummaryScan"
-                    android:layout_below="@id/tv_name" />
+                    android:layout_below="@id/tv_name"
+                    android:visibility="gone"/>
 
 
                 <TextView
                     android:id="@+id/tv_contact"
                     style="@style/itemSummaryScan"
+                    android:layout_below="@id/labelContact"
                     android:text="Non scanné"
-                    android:layout_below="@id/labelContact"/>
+                    android:visibility="gone"/>
 
 
                 <Button
@@ -132,7 +136,8 @@
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/btn_orange_style"
                     android:text="@string/askCodeText"
-                    android:textColor="#fff" />
+                    android:textColor="#fff"
+                    android:visibility="gone"/>
 
             </RelativeLayout>
 

@@ -32,24 +32,24 @@ class OnboardingActivity : BaseActivity<
 
         mList.add(
             ScreenItem(
-                "Bienvenue à ARTSIAN'",
-                "Nous vous mettons en relatio,n avec les meilleurs prestataires de services.",
+                "Bienvenue à Scan Qr Code'",
+                "Scan Qr Code permet de verifier vos Qr Codes",
                 R.drawable.onboarding_img1
             )
         )
 
         mList.add(
             ScreenItem(
-                "SERVICES",
-                "Soumettez vos offres et nous vous proposons avec l'artisan ayant le meilleur profil",
+                "Accès à la camera",
+                "Veuillez accorder la permission d'accès à la caméra et vous pourrez scanner le Qr du client.",
                 R.drawable.onboarding_img2
             )
         )
 
         mList.add(
             ScreenItem(
-                "AVENTURE",
-                "Embarquez avec nous dans cette aventure merveilleuse.",
+                "Scan Qr Code",
+                "Placez le code qr face au téléphone et évitez de le secouer afin d'obtenir les résultats rapidement",
                 R.drawable.onboarding_img3
             )
         )
