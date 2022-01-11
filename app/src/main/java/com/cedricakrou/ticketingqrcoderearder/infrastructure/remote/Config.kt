@@ -8,5 +8,5 @@ object Config {
     const val qrCode = "qr-code/"
 
 //    const val scan = "${qrCode}scan"
-    const val scan = "scan"
+    const val scan = "ticketing/scan"
 }
